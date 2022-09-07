@@ -1,0 +1,28 @@
+.flexBox {
+    display: flex;
+    flex-flow:column wrap ;
+}
+.header {
+    display: flex;
+    flex-flow: column wrap;
+}
+.progressBar {
+    display: flex;
+    flex-flow: row wrap;
+}
+.flexBulk {
+    display: flex;
+    flex-flow: row wrap;
+}
+.leftColumn {
+    display: flex;
+    flex-flow: column wrap;
+}
+.rightColumn {
+    display: flex;
+    flex-flow: column wrap;
+}
+.flexFooter {
+    display: flex;
+    flex-flow: row wrap;
+}
