@@ -1,28 +1,73 @@
-.flexBox {
+.container {
     display: flex;
-    flex-flow:column wrap ;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: lightblue;
+    color:red;
+    width: 100vw;
+    height: 100vh;
 }
 .header {
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    flex-basis: 20%;
+    /* padding: 10% 0%; */
+    width: 100vw;
 }
+.title-container {
+    display: flex;
+    justify-content: center;
+} 
 .progressBar {
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
+    /* flex: 1; */
+    justify-content: space-around;
+    /* align-self: auto; */
+    /* align-items: center; */
 }
-.flexBulk {
+.btn {
+    flex: 1;
+}
+.main {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
+    /* flex-basis: 60%;     */
+    border-top: 5px solid black;
+    flex: 3;
 }
-.leftColumn {
+.Column {
+    display: flex;
+    flex-direction: column;
+    /* align-self: flex-end; */
+    /* flex-basis: 20%; */
+    flex: 1;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.left {
     display: flex;
     flex-flow: column wrap;
+    border-right: 5px solid black;
+    /* flex: 1; */
 }
-.rightColumn {
-    display: flex;
-    flex-flow: column wrap;
+.timer {
+    align-self: flex-start;
 }
-.flexFooter {
+.footer {
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    flex-basis: 20%;
+    border-top: 5px solid black;
+}
+.currentCard {
+    margin: 0 auto;
 }
