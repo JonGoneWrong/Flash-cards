@@ -6,49 +6,69 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width= , initial-scale=1.0" />
-		<script defer src="script.js"></script>
+		<script defer src="js/script.js"></script>
 		<title>Flash-Cards</title>
 	</head>
 	<body class="container">
 		<header class="header item">
 			<div class="title-container">
-				<h1 class="title">Flash-Cards</h1>
+				<h1 class="page-title">Flash-Cards</h1>
 			</div>
-			<nav class="progress-bar">
-				<div class="btn">Score:</div>
-				<div class="btn">Streak:</div>
+			<nav class="streak-bar">
+				<div class="current-streak btn">Current Streak:</div>
+				<div class="max-streak btn">Max Streak:</div>
 			</nav>
 		</header>
 		<!-- this nav: vertical list on the left hand side, to see decks? recent problem cards? -->
 		<main class="main item">
 			<nav class="left column">
-				<h3>Decks</h3>
-				<div class="recent-card0">recent0</div>
-				<div class="recent-card1">recent1</div>
-				<div class="recent-card2">recent2</div>
+				<div class="column-title">
+					<h3>Decks</h3>
+				</div>
+				<div class="menu">
+					<div class="recent card0">recent0</div>
+					<div class="recent card1">recent1</div>
+					<div class="recent card2">recent2</div>
+				</div>
 			</nav>
 			<!-- each card needs to have some way to mark/star/flag it. -->
-			<div class="current-card">current card goes here.</div>
-			<!-- this nav: fixed column on the right side containing timer and the 3 buttons for add/edit/remove cards. -->
+			<div class="current-card-container">
+				<div class="current-card">
+					<h2 class="current-title"></h2>
+					<div class="current-question"></div>
+					<div class="current-answer"></div>
+				</div>
+			</div>
 			<nav class="right column">
-				<div class="timer">timerGoesHere</div>
-				<div class="options">
-					<button>Add a card</button>
-					<button>Edit a card</button>
-					<button>Delete a card</button>
+				<div class="column-title">
+					<div class="timer">timerGoesHere</div>
+				</div>
+				<div class="menu">
+					<button class="button add">Add a card</button>
+					<button class="button edit">Edit a card</button>
+					<button class="button delete">Delete a card</button>
+					<form action="">
+						<input name="title" type="text" />
+						<input name="question" type="text" />
+						<input name="answer" type="text" />
+						<button type="submit">Add this card!</button>
+					</form>
 				</div>
 			</nav>
 		</main>
 
 		<!-- the footer should be the current deck of cards, each should be clickable so that when clicked they replace the current card. -->
 		<footer class="footer item">
-			<h3>Current Deck of Cards</h3>
-			<div>Current Deck: Card 0</div>
-			<div>Current Deck: Card 1</div>
-			<div>Current Deck: Card 2</div>
-			<div>Current Deck: Card 3</div>
-			<div>Current Deck: Card 4</div>
-			<div>Current Deck: Card 5</div>
+			<h3>Current Deck Name/Change Current Deck?</h3>
+			<div class="deck-scroll">
+				<div class="scroll-left"><img src="" alt="Left arrow" /></div>
+				<div class="card zero" id="0">0</div>
+				<div class="card one" id="1">1</div>
+				<div class="card two" id="2">2</div>
+				<div class="card three" id="3">3</div>
+				<div class="card four" id="4">4</div>
+				<div class="scroll-right"><img src="" alt="Right arrow" /></div>
+			</div>
 		</footer>
 	</body>
 </html>
