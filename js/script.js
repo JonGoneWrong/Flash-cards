@@ -56,10 +56,10 @@ const addButton = document.querySelector('.add');
 const hideQuestionsButton = document.querySelector('.hide-questions');
 const allQuestions = document.querySelectorAll('.question');
 
-// const hideAnswersButton = document.querySelector('.hide-answers');
-// const allAnswers = document.querySelectorAll('.answer');
+const hideAnswersButton = document.querySelector('.hide-answers');
+const allAnswers = document.querySelectorAll('.answer');
 
-// const showBothButton = document.querySelector('.show-both');
+const showBothButton = document.querySelector('.show-both');
 
 const form = document.querySelector('form');
 
@@ -177,7 +177,23 @@ create event listener when click bottom screen, grabbing appro index number
  */
 
 function hideQuestions(e) {
-	allQuestions.style.visibility = 'hidden';
+	allQuestions.forEach(function (element) {
+		element.style.visibility = 'hidden';
+	});
+}
+function hideAnswers(e) {
+	allAnswers.forEach(function (element) {
+		element.style.visibility = 'hidden';
+	});
+}
+function showBoth(e) {
+	allQuestions.forEach(function (element) {
+		element.style.visibility = 'visible';
+	});
+
+	allAnswers.forEach(function (element) {
+		element.style.visibility = 'visible';
+	});
 }
 
 // function hideAnswers(e) {

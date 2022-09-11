@@ -6,6 +6,12 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width= , initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+			rel="stylesheet"
+		/>
 		<script defer src="js/script.js"></script>
 		<title>Flash-Cards</title>
 	</head>
@@ -37,11 +43,13 @@
 			<!-- each card needs to have some way to mark/star/flag it. -->
 			<div class="card-container">
 				<div class="current-cards">
-					<div class="current-question question">
-						What are we studying today?
-					</div>
-					<div class="current-answer answer">
-						(Choose a card below to begin.)
+					<div class="big card">
+						<div class="current-question question">
+							What are we studying today?
+						</div>
+						<div class="current-answer answer">
+							(Choose a card below to begin.)
+						</div>
 					</div>
 					<div class="deck-scroll">
 						<!-- <div class="scroll-left"><img src="" alt="Left arrow" /></div> -->
@@ -76,7 +84,7 @@
 				</div>
 				<div class="menu">
 					<button class="button add">Add a card</button>
-					<button class="button edit">Edit a card</button>
+					<!-- <button class="button edit">Edit a card</button> -->
 					<button class="button delete">Delete a card</button>
 					<form action="">
 						<input name="question" type="text" />
