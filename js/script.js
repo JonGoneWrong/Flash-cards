@@ -30,14 +30,6 @@ const currentQuestion = document.querySelector('.current-question');
 
 const currentAnswer = document.querySelector('.current-answer');
 
-const hideQuestionsButton = document.querySelector('.hide-questions');
-const allQuestions = document.querySelectorAll('.question');
-
-const hideAnswersButton = document.querySelector('.hide-answers');
-const allAnswers = document.querySelectorAll('.answer');
-
-const showBothButton = document.querySelector('.show-both');
-
 const addButton = document.querySelector('.add');
 const form = document.querySelector('form');
 const cancelButton = document.querySelector('.cancel');
@@ -72,12 +64,20 @@ function render() {
 		cardAnswer.classList.add('card-zero', 'answer');
 		card.appendChild(cardQuestion);
 		card.appendChild(cardAnswer);
-		// currentDeck.forEach(function (element) {
-		// });
+		cardQuestion.innerHTML = currentDeck[i].question;
+		cardAnswer.innerHTML = currentDeck[i].answer;
 	}
 }
 
 render();
+
+const hideQuestionsButton = document.querySelector('.hide-questions');
+const allQuestions = document.querySelectorAll('.question');
+
+const hideAnswersButton = document.querySelector('.hide-answers');
+const allAnswers = document.querySelectorAll('.answer');
+
+const showBothButton = document.querySelector('.show-both');
 
 /*----- event listeners -----*/
 
@@ -135,14 +135,28 @@ function newCard(e) {
 	e.preventDefault();
 	newCardQuestion = e.target.elements[0].value;
 	newCardAnswer = e.target.elements[1].value;
-	let card = {
+	let newCard = {
 		question: newCardQuestion,
 		answer: newCardAnswer,
 	};
-	currentDeck.push(card);
+	currentDeck.push(newCard);
 	form.style.display = 'none';
 	addButton.style.display = 'block';
 	deleteButton.style.display = 'block';
+
+	let card = document.createElement('div');
+	deckScroll.appendChild(card);
+	let cardQuestion = document.createElement('div');
+	let cardAnswer = document.createElement('div');
+	card.classList.add('card', 'zero');
+	card.setAttribute('id', `${currentDeck.length - 1}`);
+	cardQuestion.classList.add('card-zero', 'question');
+	cardAnswer.classList.add('card-zero', 'answer');
+	card.appendChild(cardQuestion);
+	card.appendChild(cardAnswer);
+	cardQuestion.innerHTML = currentDeck[currentDeck.length - 1].question;
+	cardAnswer.innerHTML = currentDeck[currentDeck.length - 1].answer;
+
 	// document.createElement.;
 	//something here to add the new card and add it to the list of cards under the 'deck-scroll' div and the currentDeck array}
 }
