@@ -14,16 +14,19 @@
 			<div class="title-container">
 				<h1 class="page-title">Flash-Cards</h1>
 			</div>
-			<nav class="streak-bar">
-				<div class="current-streak btn">Current Streak:</div>
-				<div class="max-streak btn">Max Streak:</div>
+			<nav class="toggle-bar">
+				<button class="button hide-answers">Hide Answers</button>
+				<button class="button hide-questions">Hide Questions</button>
+				<button class="button show-both">Show Both</button>
+				<!-- <button class="button show-questions">Hide both? (Random mode!)</button> -->
+				<!-- <div class="max-streak btn">Max Streak:</div> -->
 			</nav>
 		</header>
 		<!-- this nav: vertical list on the left hand side, to see decks? recent problem cards? -->
 		<main class="main item">
 			<nav class="left column">
 				<div class="column-title">
-					<h3>Decks</h3>
+					<h3>Recent</h3>
 				</div>
 				<div class="menu">
 					<div class="recent card0">recent0</div>
@@ -32,11 +35,39 @@
 				</div>
 			</nav>
 			<!-- each card needs to have some way to mark/star/flag it. -->
-			<div class="current-card-container">
-				<div class="current-card">
-					<h2 class="current-title"></h2>
-					<div class="current-question"></div>
-					<div class="current-answer"></div>
+			<div class="card-container">
+				<div class="current-cards">
+					<div class="current-question question">
+						What are we studying today?
+					</div>
+					<div class="current-answer answer">
+						(Choose a card below to begin.)
+					</div>
+					<div class="deck-scroll">
+						<!-- <div class="scroll-left"><img src="" alt="Left arrow" /></div> -->
+						<div class="card zero" id="0">
+							<div class="card-zero question">2 x 3</div>
+							<div class="card-zero answer">6</div>
+							<div></div>
+						</div>
+						<div class="card one" id="1">
+							<div class="card-zero question">3 x 5</div>
+							<div class="card-zero answer">15</div>
+						</div>
+						<div class="card two" id="2">
+							<div class="card-zero question">5 x 8</div>
+							<div class="card-zero answer">40</div>
+						</div>
+						<div class="card three" id="3">
+							<div class="card-zero question">8 x 13</div>
+							<div class="card-zero answer">108</div>
+						</div>
+						<div class="card four" id="4">
+							<div class="card-zero question">13 x 21</div>
+							<div class="card-zero answer">273</div>
+						</div>
+						<!-- <div class="scroll-right"><img src="" alt="Right arrow" /></div> -->
+					</div>
 				</div>
 			</div>
 			<nav class="right column">
@@ -48,7 +79,6 @@
 					<button class="button edit">Edit a card</button>
 					<button class="button delete">Delete a card</button>
 					<form action="">
-						<input name="title" type="text" />
 						<input name="question" type="text" />
 						<input name="answer" type="text" />
 						<button type="submit">Add this card!</button>
@@ -59,16 +89,7 @@
 
 		<!-- the footer should be the current deck of cards, each should be clickable so that when clicked they replace the current card. -->
 		<footer class="footer item">
-			<h3>Current Deck Name/Change Current Deck?</h3>
-			<div class="deck-scroll">
-				<div class="scroll-left"><img src="" alt="Left arrow" /></div>
-				<div class="card zero" id="0">0</div>
-				<div class="card one" id="1">1</div>
-				<div class="card two" id="2">2</div>
-				<div class="card three" id="3">3</div>
-				<div class="card four" id="4">4</div>
-				<div class="scroll-right"><img src="" alt="Right arrow" /></div>
-			</div>
+			<!-- <h3>Current Deck Name/Change Current Deck?</h3> -->
 		</footer>
 	</body>
 </html>

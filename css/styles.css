@@ -15,6 +15,7 @@
     /* flex-basis: 20%; */
     /* padding: 10% 0%; */
     flex: 1;
+    height: 15vh;
     /* width: 100vw; */
 }
 .title-container {
@@ -22,7 +23,7 @@
     justify-content: center;
     /* padding-top:  */
 } 
-.streak-bar {
+.toggle-bar {
     display: flex;
     flex-direction: row;
     /* flex: 1; */
@@ -49,7 +50,10 @@
     flex-basis: 20%;
     /* flex: 1; */
 }
-.current-card {
+.card-container {
+    width: 58%;
+}
+.current-cards {
     /* flex: 4; */
     display: flex;
     flex-direction: column;
@@ -57,6 +61,7 @@
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
+    width: 100%;
 }
 .left {
     display: flex;
@@ -88,28 +93,47 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 1;
+    height: 10vh;
     /* flex-basis: 20%; */
     border-top: 5px solid black;
 }
 .deck-scroll{
     display: flex;
-    justify-content: space-evenly;
+    flex-flow: row wrap;
+    justify-content: space-between;
     align-items: stretch;
-    flex: 1    
+    /* flex: 1     */
     }
 .card {
-    flex-grow: 2;
+    display: flex;
+    width: 30%;
+    /* height: 100%; */
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: auto; */
+    background-color: aquamarine;
 }
 .card:hover {
-    border: 3px solid black;
+    border: 2px dotted black;
     /* border-radius: 10px solid black; */
     /* border-top: none; */
     /* border-bottom: none; */
 }
+/* .preview {
+    background-color: blue;
+
+} */
 .scroll-left, .scroll-right {
     flex-grow: 1;
 }
 /* .scroll-left {
     border-right: 10px;
 } */
+
+.question{
+    visibility: hidden;
+}
+.answer {
+    visibility: visible;
+}
