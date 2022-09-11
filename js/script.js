@@ -53,9 +53,13 @@ const currentAnswer = document.querySelector('.current-answer');
 
 const addButton = document.querySelector('.add');
 
-const hideAnswersButton = document.querySelector('.hide-answers');
 const hideQuestionsButton = document.querySelector('.hide-questions');
-const showBothButton = document.querySelector('.show-both');
+const allQuestions = document.querySelectorAll('.question');
+
+// const hideAnswersButton = document.querySelector('.hide-answers');
+// const allAnswers = document.querySelectorAll('.answer');
+
+// const showBothButton = document.querySelector('.show-both');
 
 const form = document.querySelector('form');
 
@@ -73,15 +77,15 @@ const cardThree = document.querySelector('.three');
 
 const cardFour = document.querySelector('.four');
 
-// let cardNumber = null;
+let cardNumber = null;
 
 /*----- event listeners -----*/
 
 form.addEventListener('submit', addCard);
 
 addButton.addEventListener('click', addCard);
-hideAnswersButton.addEventListener('click', hideAnswers);
 hideQuestionsButton.addEventListener('click', hideQuestions);
+hideAnswersButton.addEventListener('click', hideAnswers);
 showBothButton.addEventListener('click', showBoth);
 
 // editButton.addEventListener('click', editCardForm);
@@ -136,7 +140,7 @@ function addCard(e) {
 function renderCard(event) {
 	event.preventDefault();
 
-	let cardNumber = null;
+	// let cardNumber = null;
 
 	cardNumber = event.target.id;
 	console.log(cardNumber);
@@ -172,14 +176,14 @@ callback?.()
 create event listener when click bottom screen, grabbing appro index number
  */
 
-function hideAnswers(e) {
-	hideAnswersButton.style.visibility = 'hidden';
+function hideQuestions(e) {
+	allQuestions.style.visibility = 'hidden';
 }
 
-function hideQuestions(e) {
-	hideQuestionsButton.style.visibility = 'hidden';
-}
-function showBoth(e) {
-	hideAnswersButton.style.visibility = 'visible';
-	hideQuestionsButton.style.visibility = 'visible';
-}
+// function hideAnswers(e) {
+// 	allAnswers.style.visibility = 'hidden';
+// }
+// function showBoth(e) {
+// 	allQuestions.style.visibility = 'visible';
+// 	allAnswers.style.visibility = 'visible';
+// }

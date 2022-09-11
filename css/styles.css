@@ -115,10 +115,7 @@
     background-color: aquamarine;
 }
 .card:hover {
-    border: 2px dotted black;
-    /* border-radius: 10px solid black; */
-    /* border-top: none; */
-    /* border-bottom: none; */
+    outline: 2px solid black;
 }
 /* .preview {
     background-color: blue;
@@ -131,8 +128,8 @@
     border-right: 10px;
 } */
 
-.question{
-    visibility: hidden;
+.question {
+    visibility: visible;
 }
 .answer {
     visibility: visible;
