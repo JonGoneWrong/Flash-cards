@@ -101,14 +101,10 @@ hideAnswersButton.addEventListener('click', hideAnswers);
 showBothButton.addEventListener('click', showBoth);
 
 deckScroll.addEventListener('click', renderCard);
-// cardZero.addEventListener('click', renderCard);
-// cardOne.addEventListener('click', renderCard);
-// cardTwo.addEventListener('click', renderCard);
-// cardThree.addEventListener('click', renderCard);
-// cardFour.addEventListener('click', renderCard);
 
 /*----- functions -----*/
 /*
+stretch goals:
 func streakCurrent {
     count the number of 'correct' answers user has gotten consecutively 
     grab the current-streak btn and set it to this number.
@@ -119,18 +115,6 @@ func streakMax {
     } 
 }
 */
-// function toggleForm() {
-// if (form.style.display === 'none') {
-// 	form.style.display = 'block';
-// } else
-// form.style.display = 'block';
-// if (addButton.style.display === 'none') {
-// 	addButton.style.display = 'block';
-// } else addButton.style.display = 'none';
-// if (deleteButton.style.display === 'none') {
-// 	deleteButton.style.display = 'block';
-// } else deleteButton.style.display = 'none';
-//}
 function newCard(e) {
 	e.preventDefault();
 	newCardQuestion = e.target.elements[0].value;
@@ -156,15 +140,10 @@ function newCard(e) {
 	card.appendChild(cardAnswer);
 	cardQuestion.innerHTML = currentDeck[currentDeck.length - 1].question;
 	cardAnswer.innerHTML = currentDeck[currentDeck.length - 1].answer;
-
-	// document.createElement.;
-	//something here to add the new card and add it to the list of cards under the 'deck-scroll' div and the currentDeck array}
 }
 
 function renderCard(event) {
 	event.preventDefault();
-
-	// let cardNumber = null;
 
 	cardNumber = event.target.id;
 
@@ -204,7 +183,6 @@ function showBoth(e) {
 	allQuestions.forEach(function (element) {
 		element.style.visibility = 'visible';
 	});
-
 	allAnswers.forEach(function (element) {
 		element.style.visibility = 'visible';
 	});
@@ -224,8 +202,9 @@ create event listener when click bottom screen, grabbing appro index number
  */
 
 /*
-<div class="card zero" id="0">
-	<div class="card-zero question"></div>
-	<div class="card-zero answer"></div>
-</div>
+MVP:
+pre-load data
+some way for user to choose which 'side' of the card to see
+buttons navigable by keyboard
+able to add and delete cards from deck.
 */
