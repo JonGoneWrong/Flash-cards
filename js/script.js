@@ -56,26 +56,56 @@ const cardThree = document.querySelector('.three');
 
 const cardFour = document.querySelector('.four');
 
+const deckScroll = document.querySelector('.deck-scroll');
+
 let cardNumber = null;
+
+function render() {
+	for (let i = 0; i < currentDeck.length; i++) {
+		let card = document.createElement('div');
+		deckScroll.appendChild(card);
+		let cardQuestion = document.createElement('div');
+		let cardAnswer = document.createElement('div');
+		card.classList.add('card', 'zero');
+		card.setAttribute('id', `${i}`);
+		cardQuestion.classList.add('card-zero', 'question');
+		cardAnswer.classList.add('card-zero', 'answer');
+		card.appendChild(cardQuestion);
+		card.appendChild(cardAnswer);
+		// currentDeck.forEach(function (element) {
+		// });
+	}
+}
+
+render();
 
 /*----- event listeners -----*/
 
-form.addEventListener('submit', addCard);
+form.addEventListener('submit', newCard);
 
-addButton.addEventListener('click', toggleForm);
+addButton.addEventListener('click', function () {
+	form.style.display = 'block';
+	addButton.style.display = 'none';
+	deleteButton.style.display = 'none';
+});
 // editButton.addEventListener('click', editCardForm);
 deleteButton.addEventListener('click', deleteCurrentCard);
-cancelButton.addEventListener('click', toggleForm);
+cancelButton.addEventListener('click', function () {
+	form.style.display = 'none';
+	addButton.style.display = 'block';
+	deleteButton.style.display = 'block';
+});
 
 hideQuestionsButton.addEventListener('click', hideQuestions);
 hideAnswersButton.addEventListener('click', hideAnswers);
 showBothButton.addEventListener('click', showBoth);
 
-cardZero.addEventListener('click', renderCard);
-cardOne.addEventListener('click', renderCard);
-cardTwo.addEventListener('click', renderCard);
-cardThree.addEventListener('click', renderCard);
-cardFour.addEventListener('click', renderCard);
+deckScroll.addEventListener('click', renderCard);
+// cardZero.addEventListener('click', renderCard);
+// cardOne.addEventListener('click', renderCard);
+// cardTwo.addEventListener('click', renderCard);
+// cardThree.addEventListener('click', renderCard);
+// cardFour.addEventListener('click', renderCard);
 
 /*----- functions -----*/
 /*
@@ -89,20 +119,19 @@ func streakMax {
     } 
 }
 */
-
-function toggleForm(e) {
-	if (form.style.display === 'none') {
-		form.style.display = 'block';
-	} else form.style.display = 'none';
-	// if (addButton.style.display === 'none') {
-	// 	addButton.style.display = 'block';
-	// } else addButton.style.display = 'none';
-	// if (deleteButton.style.display === 'none') {
-	// 	deleteButton.style.display = 'block';
-	// } else deleteButton.style.display = 'none';
-}
-
-function addCard(e) {
+// function toggleForm() {
+// if (form.style.display === 'none') {
+// 	form.style.display = 'block';
+// } else
+// form.style.display = 'block';
+// if (addButton.style.display === 'none') {
+// 	addButton.style.display = 'block';
+// } else addButton.style.display = 'none';
+// if (deleteButton.style.display === 'none') {
+// 	deleteButton.style.display = 'block';
+// } else deleteButton.style.display = 'none';
+//}
+function newCard(e) {
 	e.preventDefault();
 	newCardQuestion = e.target.elements[0].value;
 	newCardAnswer = e.target.elements[1].value;
@@ -111,6 +140,10 @@ function addCard(e) {
 		answer: newCardAnswer,
 	};
 	currentDeck.push(card);
+	form.style.display = 'none';
+	addButton.style.display = 'block';
+	deleteButton.style.display = 'block';
+	// document.createElement.;
 	//something here to add the new card and add it to the list of cards under the 'deck-scroll' div and the currentDeck array}
 }
 
@@ -175,3 +208,10 @@ const callback = {
 callback?.()
 create event listener when click bottom screen, grabbing appro index number
  */
+
+/*
+<div class="card zero" id="0">
+	<div class="card-zero question"></div>
+	<div class="card-zero answer"></div>
+</div>
+*/
