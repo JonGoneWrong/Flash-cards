@@ -1,32 +1,17 @@
 /*----- constants -----*/
 /*
+stretch goals:
 const TIMER_DURATION = NUMBER
-
-
 */
 
 /*----- app's state (variables) -----*/
 /*
-
-currentCard = null
-change from null to obj with renderCard
-
-currentDeckArray (?)
-array[card the user clicked] = currentCard
-
-number of incorrect cards
-
-3 most recent cards
-recent0 = when currentCard changes, store its value here just before that change happens
-recent1 = when recent0 changes, store its value here before that change happens
-recent2 = when recent1 changes, store its value here before that change happens
-
+stretch goals: 
+incorrect cards
 max streak count
-
-For stretch goals: 
 decks the user has compiled.
-
 */
+
 let currentCard = {
 	question: null,
 	answer: null,
@@ -39,19 +24,11 @@ currentDeck = [
 	{ question: '13 x 21', answer: '273' },
 ];
 
-// let
 /*----- cached element references -----*/
-/*
-current streak count
-maxStreak
 
-
-*/
 const currentQuestion = document.querySelector('.current-question');
 
 const currentAnswer = document.querySelector('.current-answer');
-
-const addButton = document.querySelector('.add');
 
 const hideQuestionsButton = document.querySelector('.hide-questions');
 const allQuestions = document.querySelectorAll('.question');
@@ -61,11 +38,13 @@ const allAnswers = document.querySelectorAll('.answer');
 
 const showBothButton = document.querySelector('.show-both');
 
+const addButton = document.querySelector('.add');
 const form = document.querySelector('form');
+const cancelButton = document.querySelector('.cancel');
 
 // const editButton = document.querySelector('.edit');
 
-// const deleteButton = document.querySelector('.delete');
+const deleteButton = document.querySelector('.delete');
 
 const cardZero = document.querySelector('.zero');
 
@@ -83,14 +62,14 @@ let cardNumber = null;
 
 form.addEventListener('submit', addCard);
 
-addButton.addEventListener('click', addCard);
+addButton.addEventListener('click', toggleForm);
+// editButton.addEventListener('click', editCardForm);
+deleteButton.addEventListener('click', deleteCurrentCard);
+cancelButton.addEventListener('click', toggleForm);
+
 hideQuestionsButton.addEventListener('click', hideQuestions);
 hideAnswersButton.addEventListener('click', hideAnswers);
 showBothButton.addEventListener('click', showBoth);
-
-// editButton.addEventListener('click', editCardForm);
-
-// deleteButton.addEventListener('click', deleteCurrentCard);
 
 cardZero.addEventListener('click', renderCard);
 cardOne.addEventListener('click', renderCard);
@@ -98,31 +77,30 @@ cardTwo.addEventListener('click', renderCard);
 cardThree.addEventListener('click', renderCard);
 cardFour.addEventListener('click', renderCard);
 
-/* 
-onclick to select a card,
-document.addEventListener('click', selectCard)
-
-onclick (or something?) to "flip" a card
-*/
-
 /*----- functions -----*/
 /*
 func streakCurrent {
     count the number of 'correct' answers user has gotten consecutively 
     grab the current-streak btn and set it to this number.
 }
-
 func streakMax {
     if (streakCurrent > streak max) {
         streakMax = streakCurrent;
     } 
 }
 */
-//function renderCardForm() {
 
-// render form
-// own button, own event listener, from here rec dat, add to currentDeck[]
-//}
+function toggleForm(e) {
+	if (form.style.display === 'none') {
+		form.style.display = 'block';
+	} else form.style.display = 'none';
+	// if (addButton.style.display === 'none') {
+	// 	addButton.style.display = 'block';
+	// } else addButton.style.display = 'none';
+	// if (deleteButton.style.display === 'none') {
+	// 	deleteButton.style.display = 'block';
+	// } else deleteButton.style.display = 'none';
+}
 
 function addCard(e) {
 	e.preventDefault();
@@ -133,8 +111,7 @@ function addCard(e) {
 		answer: newCardAnswer,
 	};
 	currentDeck.push(card);
-	// console.log(currentDeck);
-	//something here to add the new card and add it to the list of cards under the 'deck-scroll' div. maybe
+	//something here to add the new card and add it to the list of cards under the 'deck-scroll' div and the currentDeck array}
 }
 
 function renderCard(event) {
@@ -143,7 +120,6 @@ function renderCard(event) {
 	// let cardNumber = null;
 
 	cardNumber = event.target.id;
-	console.log(cardNumber);
 
 	currentCard.question = currentDeck[cardNumber].question;
 
@@ -158,25 +134,16 @@ function renderCard(event) {
 // 	console.log('editing');
 // }
 
-// function deleteCurrentCard() {
-// 	console.log('deleting');
-// }
-
-/*
-POSSIBLE SOLUTION TO CARD SELECTION USING ARROW KEYS?:
-https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
-
-const callback = {
-    "ArrowLeft"  : leftHandler,
-    "ArrowRight" : rightHandler,
-    "ArrowUp"    : upHandler,
-    "ArrowDown"  : downHandler,
-}[event.key]
-callback?.()
-create event listener when click bottom screen, grabbing appro index number
- */
+function deleteCurrentCard() {
+	console.log('deleting');
+}
 
 function hideQuestions(e) {
+	// if (hideQuestionsButton.innerText == 'Hide Questions') {
+	// 	hideQuestionsButton.innerText = 'Show Questions';
+	// } else {
+	// 	hideQuestionsButton.innerText = 'Hide Questions';
+	// }
 	allQuestions.forEach(function (element) {
 		element.style.visibility = 'hidden';
 	});
@@ -196,10 +163,15 @@ function showBoth(e) {
 	});
 }
 
-// function hideAnswers(e) {
-// 	allAnswers.style.visibility = 'hidden';
-// }
-// function showBoth(e) {
-// 	allQuestions.style.visibility = 'visible';
-// 	allAnswers.style.visibility = 'visible';
-// }
+/*POSSIBLE SOLUTION TO CARD SELECTION USING ARROW KEYS?:
+https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
+
+const callback = {
+	"ArrowLeft"  : leftHandler,
+	"ArrowRight" : rightHandler,
+	"ArrowUp"    : upHandler,
+	"ArrowDown"  : downHandler,
+}[event.key]
+callback?.()
+create event listener when click bottom screen, grabbing appro index number
+ */
