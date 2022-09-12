@@ -113,7 +113,8 @@
 }
 .deck-scroll{
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     height: 25%;
@@ -124,24 +125,25 @@
     /* flex: 1     */
     }
 
-form{
+form, .cancel{
     display:none;
 }
 .add, .delete{
     display: block;
 }
 
-.deck-scroll .card {
+.deck-scroll > .card {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 75%;
-    width: 25%;
-    flex: 1;
+    /* gap: 10px; */
+    height: 50%;
+    min-width: 15%;
+    /* flex: 1; */
     background-color: #91c4f2;
-        border: 1px solid #7e1f86;
-            border-radius: 2%;
+    border: 1px solid #7e1f86;
+    /* border-radius: 2%; */
     /* border: transparent; */
     
 }
@@ -164,7 +166,13 @@ form{
     /* margin-bottom: 50px; */
     /* top: 1px; */
 }
-
+.answer-box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    /* flex: 1; */
+}
 .scroll-left, .scroll-right {
     flex-grow: 1;
 }
@@ -177,9 +185,9 @@ form{
 .answer {
     justify-content: center;
     align-items: center;
-    visibility: visible;
+    visibility: hidden;
 }
 button {
     font-family: inherit;
-    border-radius: 2%;
+    border-radius: 10%;
 }

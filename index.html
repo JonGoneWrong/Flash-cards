@@ -21,26 +21,24 @@
 				<h1 class="page-title">Flash-Cards</h1>
 			</div>
 			<nav class="toggle-bar">
-				<button class="button hide-questions">Hide Questions</button>
+				<!-- <button class="button hide-questions">Hide Questions</button> -->
+				<button class="button show-answers">Show Answers</button>
 				<button class="button hide-answers">Hide Answers</button>
-				<button class="button show-both">Show Both</button>
 				<!-- <button class="button show-questions">Hide both? (Random mode!)</button> -->
 				<!-- <div class="max-streak btn">Max Streak:</div> -->
 			</nav>
 		</header>
-		<!-- this nav: vertical list on the left hand side, to see decks? recent problem cards? -->
 		<main class="main item">
 			<nav class="left column">
 				<div class="column-title">
 					<h3></h3>
 				</div>
 				<div class="menu">
-					<div class="recent card0"></div>
+					<!-- <div class="recent card0"></div>
 					<div class="recent card1"></div>
-					<div class="recent card2"></div>
+					<div class="recent card2"></div> -->
 				</div>
 			</nav>
-			<!-- each card needs to have some way to mark/star/flag it. -->
 			<div class="card-container">
 				<div class="big card">
 					<div class="current-question question">
@@ -50,30 +48,13 @@
 						(Choose a card below to begin.)
 					</div>
 				</div>
-				<div class="deck-scroll">
-					<!-- <div class="scroll-left"><img src="" alt="Left arrow" /></div> -->
-					<!-- <div class="card zero" id="0">
-						<div class="card-zero question">2 x 3</div>
-						<div class="card-zero answer">6</div>
-					</div>
-					<div class="card one" id="1">
-						<div class="card-one question">3 x 5</div>
-						<div class="card-one answer">15</div>
-					</div>
-					<div class="card two" id="2">
-						<div class="card-two question">5 x 8</div>
-						<div class="card-two answer">40</div>
-					</div>
-					<div class="card three" id="3">
-						<div class="card-three question">8 x 13</div>
-						<div class="card-three answer">108</div>
-					</div>
-					<div class="card four" id="4">
-						<div class="card-four question">13 x 21</div>
-						<div class="card-four answer">273</div>
-					</div> -->
-					<!-- <div class="scroll-right"><img src="" alt="Right arrow" /></div> -->
+				<div class="answer-box">
+					<button class="answer-choice a">a</button>
+					<button class="answer-choice b">b</button>
+					<button class="answer-choice c">c</button>
+					<button class="answer-choice d">d</button>
 				</div>
+				<div class="deck-scroll"></div>
 			</div>
 			<nav class="right column">
 				<div class="column-title">
@@ -82,18 +63,19 @@
 				<div class="menu">
 					<button class="button add">Add a card</button>
 					<!-- <button class="button edit">Edit a card</button> -->
-					<button class="button delete">Delete a card</button>
+					<!-- <button class="button delete">Delete a card</button> -->
 					<form action="">
 						<input name="question" placeholder="Question" type="text" />
-						<input name="answer" placeholder="Answer" type="text" />
-						<button type="submit">Add</button>
-						<button class="button cancel">Cancel</button>
+						<input name="answer" placeholder="Right Answer" type="text" />
+						<!-- <input name="answer" placeholder="3 Wrong Answers:" type="text" /> -->
+						<button class="submit" type="submit">Add</button>
 					</form>
+					<button class="button cancel">Cancel</button>
 				</div>
 			</nav>
 		</main>
 		<footer class="footer item">
-			<!-- <h3>Current Deck Name/Change Current Deck?</h3> -->
+			<!-- <h3>Current Deck Name?/Change Current Deck?</h3> -->
 		</footer>
 	</body>
 </html>
