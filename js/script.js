@@ -1,15 +1,19 @@
 /*----- constants -----*/
 /*
+
+MVP:
+pre-load data
+some way for user to choose which 'side' of the card to see
+buttons navigable by keyboard
+able to add cards.
+
 stretch goals:
 const TIMER_DURATION = NUMBER
 */
 
 /*----- app's state (variables) -----*/
 /*
-stretch goals: 
-incorrect cards
-max streak count
-decks the user has compiled.
+stretch goals: incorrect cards, max streak count, decks the user has compiled.
 */
 
 let currentCard = {
@@ -30,7 +34,7 @@ const currentQuestion = document.querySelector('.current-question');
 
 const currentAnswer = document.querySelector('.current-answer');
 
-const answerBox = document.querySelector('answer-box');
+const answerBox = document.querySelector('.answer-box');
 const answerChoices = document.querySelectorAll('.answer-choice');
 const firstAnswerChoice = document.querySelector('.a');
 const secondAnswerChoice = document.querySelector('.b');
@@ -67,9 +71,6 @@ function render() {
 
 render();
 
-// const hideQuestionsButton = document.querySelector('.hide-questions');
-// const allQuestions = document.querySelectorAll('.question');
-
 const showAnswersButton = document.querySelector('.show-answers');
 const hideAnswersButton = document.querySelector('.hide-answers');
 // const allAnswers = document.querySelectorAll('.answer');
@@ -77,7 +78,11 @@ const hideAnswersButton = document.querySelector('.hide-answers');
 // const submitButton = document.querySelector('.submit');
 
 /*----- event listeners -----*/
-// answerBox.addEventListener('click', correctAnswer);
+// answerChoices.addEventListener('click', checkAnswer);
+firstAnswerChoice.addEventListener('click', checkAnswer);
+secondAnswerChoice.addEventListener('click', checkAnswer);
+thirdAnswerChoice.addEventListener('click', checkAnswer);
+fourthAnswerChoice.addEventListener('click', checkAnswer);
 
 form.addEventListener('submit', newCard);
 
@@ -96,32 +101,23 @@ cancelButton.addEventListener('click', function () {
 	// deleteButton.style.display = 'block';
 });
 
-// hideQuestionsButton.addEventListener('click', hideQuestions);
 showAnswersButton.addEventListener('click', showAnswers);
 hideAnswersButton.addEventListener('click', hideAnswers);
 
 deckScroll.addEventListener('click', renderCard);
 
 /*----- functions -----*/
-/*
-stretch goals:
-func streakCurrent {
-    count the number of 'correct' answers user has gotten consecutively 
-    grab the current-streak btn and set it to this number.
-}
-func streakMax {
-    if (streakCurrent > streak max) {
-        streakMax = streakCurrent;
-    } 
-}
-*/
+
 function newCard(submit) {
 	submit.preventDefault();
 	newCardQuestion = submit.target.elements[0].value;
 	newCardAnswer = submit.target.elements[1].value;
+	// newCardWrongAnswers = submit.target.elements[2].value;
 	let newCard = {
 		question: newCardQuestion,
 		answer: newCardAnswer,
+		// answerPool: newCardAnswer,
+		// newCardWrongAnswers,
 	};
 	currentDeck.push(newCard);
 	form.style.display = 'none';
@@ -167,31 +163,17 @@ function renderCard(event) {
 			availableAnswers.push(newAnswer);
 		}
 	}
-	console.log(availableAnswers);
-	//grab 4 buttons, assign each an innerText value pulled from currentDeck answerPool.
+	// console.log(availableAnswers);
 	answerChoices.forEach(function (element, i) {
 		element.innerText = availableAnswers[i];
 	});
 }
 
 // function editCard() {
-// 	console.log('editing');
-// }
+// 	console.log('editing');}
 // function deleteCurrentCard() {
-// 	console.log('deleting');
-// }
+// 	console.log('deleting');}
 
-// function hideQuestions(e) {
-// if (hideQuestionsButton.innerText == 'Hide Questions') {
-// 	hideQuestionsButton.innerText = 'Show Questions';
-// } else {
-// 	hideQuestionsButton.innerText = 'Hide Questions';
-// }
-// const allQuestions = document.querySelectorAll('.question');
-// allQuestions.forEach(function (element) {
-// 	element.style.visibility = 'hidden';
-// });
-// }
 function showAnswers(e) {
 	// const allQuestions = document.querySelectorAll('.question');
 	// allQuestions.forEach(function (element) {
@@ -209,9 +191,12 @@ function hideAnswers(e) {
 	});
 }
 
-// function evaluateAnswer {
-// 	if
-// }
+function checkAnswer(e) {
+	// cardNumber = currentDeck;
+	if (e.target.innerHTML == currentAnswer.innerHTML) {
+		console.log('Correct!');
+	} else console.log('wrong');
+}
 
 /*POSSIBLE SOLUTION TO CARD SELECTION USING ARROW KEYS?:
 https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
@@ -225,11 +210,3 @@ const callback = {
 callback?.()
 create event listener when click bottom screen, grabbing appro index number
  */
-
-/*
-MVP:
-pre-load data
-some way for user to choose which 'side' of the card to see
-buttons navigable by keyboard
-able to add and delete cards from deck.
-*/
