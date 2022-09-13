@@ -1,20 +1,16 @@
-/*----- constants -----*/
 /*
-
 MVP:
-pre-load data
+pre-load data,
 some way for user to choose which 'side' of the card to see
 buttons navigable by keyboard
 able to add cards.
 
 stretch goals:
-const TIMER_DURATION = NUMBER
+incorrect cards, max streak count, decks the user has compiled, a timer
 */
+/*----- constants -----*/
 
 /*----- app's state (variables) -----*/
-/*
-stretch goals: incorrect cards, max streak count, decks the user has compiled.
-*/
 
 let currentCard = {
 	question: null,
@@ -45,9 +41,6 @@ const addButton = document.querySelector('.add');
 const form = document.querySelector('form');
 const cancelButton = document.querySelector('.cancel');
 
-// const editButton = document.querySelector('.edit');
-// const deleteButton = document.querySelector('.delete');
-
 const deckScroll = document.querySelector('.deck-scroll');
 
 let cardNumber = null;
@@ -75,8 +68,6 @@ const showAnswersButton = document.querySelector('.show-answers');
 const hideAnswersButton = document.querySelector('.hide-answers');
 // const allAnswers = document.querySelectorAll('.answer');
 
-// const submitButton = document.querySelector('.submit');
-
 /*----- event listeners -----*/
 // answerChoices.addEventListener('click', checkAnswer);
 firstAnswerChoice.addEventListener('click', checkAnswer);
@@ -90,15 +81,11 @@ addButton.addEventListener('click', function () {
 	form.style.display = 'block';
 	cancelButton.style.display = 'block';
 	addButton.style.display = 'none';
-	// deleteButton.style.display = 'none';
 });
-// editButton.addEventListener('click', editCardForm);
-// deleteButton.addEventListener('click', deleteCurrentCard);
 cancelButton.addEventListener('click', function () {
 	form.style.display = 'none';
 	cancelButton.style.display = 'none';
 	addButton.style.display = 'block';
-	// deleteButton.style.display = 'block';
 });
 
 showAnswersButton.addEventListener('click', showAnswers);
@@ -123,12 +110,14 @@ function newCard(submit) {
 	form.style.display = 'none';
 	cancelButton.style.display = 'none';
 	addButton.style.display = 'block';
-	// deleteButton.style.display = 'block';
 
 	let card = document.createElement('div');
+
 	deckScroll.appendChild(card);
+
 	let cardQuestion = document.createElement('div');
 	let cardAnswer = document.createElement('div');
+
 	card.classList.add('card');
 	card.setAttribute('id', `${currentDeck.length - 1}`);
 	cardQuestion.classList.add('question');
@@ -163,22 +152,12 @@ function renderCard(event) {
 			availableAnswers.push(newAnswer);
 		}
 	}
-	// console.log(availableAnswers);
 	answerChoices.forEach(function (element, i) {
 		element.innerText = availableAnswers[i];
 	});
 }
 
-// function editCard() {
-// 	console.log('editing');}
-// function deleteCurrentCard() {
-// 	console.log('deleting');}
-
 function showAnswers(e) {
-	// const allQuestions = document.querySelectorAll('.question');
-	// allQuestions.forEach(function (element) {
-	// 	element.style.visibility = 'visible';
-	// });
 	const allAnswers = document.querySelectorAll('.answer');
 	allAnswers.forEach(function (element) {
 		element.style.visibility = 'visible';
@@ -191,11 +170,21 @@ function hideAnswers(e) {
 	});
 }
 
+// let attempts = 0;
 function checkAnswer(e) {
-	// cardNumber = currentDeck;
+	// if (attempts < 2) {
 	if (e.target.innerHTML == currentAnswer.innerHTML) {
-		console.log('Correct!');
-	} else console.log('wrong');
+		alert('Correct!');
+		// let attempts = 0;
+	} else {
+		alert('Try again.');
+		// attempts++;
+	}
+	// } else if (attempts >= 2) {
+	// 	alert('Incorrect.');
+	// 	return;
+	// }
+	// }
 }
 
 /*POSSIBLE SOLUTION TO CARD SELECTION USING ARROW KEYS?:
