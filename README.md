@@ -1,4 +1,5 @@
 Screenshot of the app:
+![Screen Shot 2022-09-12 at 6 08 18 PM](https://user-images.githubusercontent.com/107736662/189941437-9b87ea85-65d2-431b-94c0-4741f8d73130.png)
 
 Technologies used:
 HTML, CSS, Javascript
