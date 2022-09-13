@@ -72,10 +72,8 @@ render();
 
 const showAnswersButton = document.querySelector('.show-answers');
 const hideAnswersButton = document.querySelector('.hide-answers');
-// const allAnswers = document.querySelectorAll('.answer');
 
 /*----- event listeners -----*/
-// answerChoices.addEventListener('click', checkAnswer);
 firstAnswerChoice.addEventListener('click', checkAnswer);
 secondAnswerChoice.addEventListener('click', checkAnswer);
 thirdAnswerChoice.addEventListener('click', checkAnswer);
@@ -100,7 +98,6 @@ hideAnswersButton.addEventListener('click', hideAnswers);
 deckScroll.addEventListener('click', renderCard);
 
 /*----- functions -----*/
-
 function newCard(submit) {
 	submit.preventDefault();
 	newCardQuestion = submit.target.elements[0].value;
