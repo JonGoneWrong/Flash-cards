@@ -64,6 +64,12 @@ function render() {
 
 render();
 
+// const cardZero = document.getElementById('.0');
+// const cardOne = document.getElementById('.1');
+// const cardTwo = document.getElementById('.2');
+// const cardThree = document.getElementById('.3');
+// const cardFour = document.getElementById('.4');
+
 const showAnswersButton = document.querySelector('.show-answers');
 const hideAnswersButton = document.querySelector('.hide-answers');
 // const allAnswers = document.querySelectorAll('.answer');
@@ -175,27 +181,8 @@ function checkAnswer(e) {
 	// if (attempts < 2) {
 	if (e.target.innerHTML == currentAnswer.innerHTML) {
 		alert('Correct!');
-		// let attempts = 0;
-	} else {
-		alert('Try again.');
-		// attempts++;
 	}
-	// } else if (attempts >= 2) {
-	// 	alert('Incorrect.');
-	// 	return;
-	// }
+	// if (e.target.innerHTML === currentDeck[0].answer) {
+	// 	cardZero.style.backgroundColor = 'green';
 	// }
 }
-
-/*POSSIBLE SOLUTION TO CARD SELECTION USING ARROW KEYS?:
-https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
-
-const callback = {
-	"ArrowLeft"  : leftHandler,
-	"ArrowRight" : rightHandler,
-	"ArrowUp"    : upHandler,
-	"ArrowDown"  : downHandler,
-}[event.key]
-callback?.()
-create event listener when click bottom screen, grabbing appro index number
- */
